@@ -16,7 +16,7 @@ abstract class Species
     PINK
   end
 
-  def initialize(@level : Int8 = nil, @nickname : String = nil)
+  def initialize(@level : Level, @nickname : String = nil)
   end
 
   abstract def color : Color

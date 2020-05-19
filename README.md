@@ -36,6 +36,7 @@ event GetRunningShoesFromMom do
 
     say "Mom: Honey! Don't forget these!"
     get_item RunningShoes
+    
     say "Mom: Let's see... it comes with lore!"
     say "Mom: Running was invented in 1748 by Thomas Running when he tried to walk twice at the same time."
     say "Mom: Anyways, have fun on your trip #{PLAYER.name}!"
@@ -46,3 +47,5 @@ event GetRunningShoesFromMom do
   end
 end
 ```
+
+Yay for extensibility! Unifying the event system with the rest of the code allows anyone with the right know-how to define their own event commands at any time (or even monkey-patch existing ones. scary...).

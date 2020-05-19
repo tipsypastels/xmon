@@ -6,5 +6,3 @@ module Xmon
 
   # TODO: Put your code here
 end
-
-puts Geodude.new.types
