@@ -4,29 +4,46 @@ abstract class Species
   include ClassNamed
 
   enum Color
-    RED
-    BLUE
-    YELLOW
-    GREEN
-    BLACK
-    BROWN
-    PURPLE
-    GRAY
-    WHITE
-    PINK
+    Red
+    Blue
+    Yellow
+    Green
+    Black
+    Brown
+    Purple
+    Gray
+    White
+    Pink
   end
 
-  def initialize(@level : Level, @nickname : String = nil)
-  end
+  getter level
+  property nickname
 
   abstract def color : Color
-  macro color(value)
+  macro color(name)
     def color : Color
-      value
+      Species::Color::{{name}}
     end
   end
 
   abstract def abilities : Array(Ability)
+  def hidden_ability : Ability?; end
+
+  macro abilities(*names, hidden = nil)
+    def abilities : Array(Ability)
+      [
+        {% for name in names %}
+          Ability::{{name}}.new,
+        {% end %}
+      ] of Ability
+    end
+
+    {% if hidden %}
+      def hidden_ability : Ability
+        Ability::{{hidden}}.new
+      end
+    {% end %}
+  end
 
   abstract def types : {Type, Type}
   macro types(type1, type2)

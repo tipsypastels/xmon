@@ -1,3 +1,3 @@
 class Geodude::Alolan < Geodude
-  types ELECTRIC, GROUND
+  types Electric, Ground
 end

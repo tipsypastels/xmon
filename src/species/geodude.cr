@@ -1,8 +1,5 @@
 class Geodude < Species
-  types ROCK, GROUND
-  color BROWN
-
-  def abilities : Array(Ability)
-    [] of Ability
-  end
+  types Rock, Ground
+  color Brown
+  abilities Sturdy, RockHead, hidden: SandVeil
 end
