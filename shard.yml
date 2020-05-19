@@ -1,0 +1,13 @@
+name: xmon
+version: 0.1.0
+
+authors:
+  - tipsypastels <dakotasankey@gmail.com>
+
+targets:
+  xmon:
+    main: src/xmon.cr
+
+crystal: 0.34.0
+
+license: MIT
