@@ -1,4 +1,4 @@
-class Geodude::Alolan < Geodude
+class Species::Geodude::Alolan < Species::Geodude
   def name
     "Geodude"
   end

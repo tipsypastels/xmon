@@ -1,4 +1,4 @@
-class Geodude < Species
+class Species::Geodude < Species
   def types
     {Types::Rock, Types::Ground}
   end
@@ -15,5 +15,7 @@ class Geodude < Species
     Ability::SandVeil
   end
 
-  #... more stuff
+  def gender_ratio
+    GenderRatio.female_50_percent
+  end
 end

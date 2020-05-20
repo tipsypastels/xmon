@@ -11,7 +11,7 @@ Why not?
 `xmon` does not have "PBS files". Instead, it makes liberal use of crystal features like static typing, macros, and enums to define this data inside the code instead. For example, each Pokémon species is a subclass of the abstract `Species` class, defined like so.
 
 ```crystal
-class Geodude < Species
+class Species::Geodude < Species
   def types
     {Types::Rock, Types::Ground}
   end
@@ -27,8 +27,9 @@ class Geodude < Species
   def hidden_ability
     Ability::SandVeil
   end
-end
 
+  # ...
+end
 ```
 
 Taking this approach with Pokémon, moves, abilities, and most other data removes the need for a PBS compiler (yay!) and ensures type safety at compile time, preventing accidentally typo-ing a Pokémon name and getting a weird error at runtime. However, you do need some familiarity with crystal to successfully make changes.

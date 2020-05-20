@@ -1,7 +1,7 @@
-class Psyduck < Species
-  evolutions do
-    at_level 33, Golduck
-  end
+class Species::Psyduck < Species
+  # evolutions do
+  #   at_level 33, Golduck
+  # end
 
   def types
     {Types::Water}
@@ -17,5 +17,9 @@ class Psyduck < Species
 
   def hidden_ability
     Ability::SwiftSwim
+  end
+
+  def gender_ratio
+    GenderRatio.female_50_percent
   end
 end

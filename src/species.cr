@@ -3,6 +3,10 @@ require "./class_named"
 abstract class Species
   include ClassNamed
 
+  def self.new_mon(level : Level, **opts)
+    Pokemon.new(self, level, **opts)
+  end
+
   enum Color
     Red
     Blue
@@ -34,7 +38,5 @@ abstract class Species
     types.last
   end
 
-  def genders
-    {Gender::Female, Gender::Male}
-  end
+  abstract def gender_ratio
 end
