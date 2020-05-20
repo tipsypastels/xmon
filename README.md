@@ -12,11 +12,23 @@ Why not?
 
 ```crystal
 class Geodude < Species
-  types ROCK, GROUND
-  abilities STURDY, ROCK_HEAD
-  color BROWN
-  # ...
+  def types
+    {Types::Rock, Types::Ground}
+  end
+
+  def color
+    Color::Brown
+  end
+
+  def abilities
+    {Ability::Sturdy, Ability::RockHead}
+  end
+
+  def hidden_ability
+    Ability::SandVeil
+  end
 end
+
 ```
 
 Taking this approach with Pokémon, moves, abilities, and most other data removes the need for a PBS compiler (yay!) and ensures type safety at compile time, preventing accidentally typo-ing a Pokémon name and getting a weird error at runtime. However, you do need some familiarity with crystal to successfully make changes.

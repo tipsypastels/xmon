@@ -5,10 +5,15 @@ class Pokemon
 
   property nickname : String?
 
-  def initialize(species : Species | Species.class, level : Level, ability : Ability? = nil, nickname : String? = nil)
-    @species = species.is_a?(Species) ? species : species.new
+  def initialize(
+    species species_class : Species.class,
+    level : Level,
+    ability : Ability.class | Nil = nil,
+    nickname : String? = nil
+  )
+    @species = species_class.new
     @level = level
-    @ability = ability || @species.not_nil!.abilities.sample
+    @ability = (ability || @species.not_nil!.abilities.sample).new(self)
     @nickname = nickname
   end
 
@@ -17,6 +22,6 @@ class Pokemon
   end
 
   def hidden_ability?
-    ability == species.hidden_ability
+    ability.class == species.hidden_ability
   end
 end

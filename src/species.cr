@@ -19,38 +19,12 @@ abstract class Species
   getter level
   property nickname
 
-  abstract def color : Color
-  macro color(name)
-    def color : Color
-      Species::Color::{{name}}
-    end
-  end
+  abstract def color
 
-  abstract def abilities : Array(Ability)
-  def hidden_ability : Ability?; end
+  abstract def abilities
+  def hidden_ability; end
 
-  macro abilities(*names, hidden = nil)
-    def abilities : Array(Ability)
-      [
-        {% for name in names %}
-          Ability::{{name}}.new,
-        {% end %}
-      ] of Ability
-    end
-
-    {% if hidden %}
-      def hidden_ability : Ability
-        Ability::{{hidden}}.new
-      end
-    {% end %}
-  end
-
-  abstract def types : {Type, Type}
-  macro types(type1, type2)
-    def types : {Type, Type}
-      {Type::{{type1}}, Type::{{type2}}}
-    end
-  end
+  abstract def types
 
   def type1
     types.first
@@ -58,5 +32,9 @@ abstract class Species
 
   def type2
     types.last
+  end
+
+  def genders
+    {Gender::Female, Gender::Male}
   end
 end

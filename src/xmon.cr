@@ -7,6 +7,9 @@ module Xmon
   # TODO: Put your code here
 end
 
-geodude = Pokemon.new(Geodude, level: 5, ability: Ability::SandVeil.new)
+geodude = Pokemon.new(Geodude, level: 5, ability: Ability::SandVeil)
 puts geodude.species.hidden_ability
 puts geodude.hidden_ability?
+
+psydcuk = Pokemon.new(Psyduck, level: 5)
+puts psydcuk.ability

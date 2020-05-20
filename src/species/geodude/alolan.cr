@@ -1,3 +1,9 @@
 class Geodude::Alolan < Geodude
-  types Electric, Ground
+  def name
+    "Geodude"
+  end
+
+  def types
+    {Types::Electric, Types::Ground}
+  end
 end
