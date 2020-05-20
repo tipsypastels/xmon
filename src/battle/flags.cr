@@ -4,4 +4,10 @@ class Battle
     NormalBattle
     SkyBattle
   end
+
+  @[Flags]
+  enum Modifiers
+    WeatherNegated
+    SelfDestructNegated
+  end
 end

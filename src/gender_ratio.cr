@@ -73,13 +73,7 @@ struct GenderRatio
   end
 
   def sample : Gender
-    x = rand
-    puts x
-    puts @female
-    puts @male
-    puts @genderless
-
-    case x
+    case rand
     when (0..@female)
       Gender::Female
     when (@female..(@female + @male))

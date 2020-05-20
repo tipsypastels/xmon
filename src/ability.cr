@@ -1,6 +1,6 @@
 require "./class_named"
 
-abstract class Ability
+abstract struct Ability
   include ClassNamed
 
   private getter pokemon

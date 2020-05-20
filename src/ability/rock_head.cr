@@ -1,2 +1,2 @@
-class Ability::RockHead < Ability
+struct Ability::RockHead < Ability
 end

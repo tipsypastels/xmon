@@ -1,2 +1,3 @@
-class Ability::Damp < Ability
+struct Ability::Damp < Ability
+
 end

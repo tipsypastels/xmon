@@ -1,2 +1,2 @@
-class Ability::Sturdy < Ability
+struct Ability::Sturdy < Ability
 end

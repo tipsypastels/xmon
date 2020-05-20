@@ -1,2 +1,2 @@
-class Ability::SwiftSwim < Ability
+struct Ability::SwiftSwim < Ability
 end

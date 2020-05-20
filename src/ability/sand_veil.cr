@@ -1,2 +1,2 @@
-class Ability::SandVeil < Ability
+struct Ability::SandVeil < Ability
 end
