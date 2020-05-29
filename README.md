@@ -6,6 +6,10 @@
 
 Why not?
 
+### Is this remotely usable?
+
+Fuck no.
+
 ### Notable differences from other engines
 
 `xmon` does not have "PBS files". Instead, it makes liberal use of crystal features like static typing, macros, and enums to define this data inside the code instead. For example, each Pokémon species is a subclass of the abstract `Species` class, defined like so.
