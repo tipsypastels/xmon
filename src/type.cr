@@ -18,4 +18,9 @@ enum Type
   Steel
   Fairy
   Unknown
+
+  def effectiveness_against(*types)
+    TypeChart.effectiveness of: self,
+                            against: types
+  end
 end
