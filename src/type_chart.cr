@@ -83,6 +83,11 @@ module TypeChart
     strong_against: {Dark, Dragon, Fighting},
     weak_against: {Fire, Poison, Steel}
 
+  # Computes the effectiveness of an attacking type against a Pokemon species.
+  def self.effectiveness(*, of attacking_type, against mon : Species) : Effectiveness
+    effectiveness(of: attacking_type, against: mon.types)
+  end
+
   # Computes the effectiveness of an attacking type against a set of defending types.
   def self.effectiveness(*, of attacking_type, against defending_types) : Effectiveness
     effectivenesses = defending_types.map { |t| fetch(attacking_type, t) }

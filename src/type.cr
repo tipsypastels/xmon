@@ -19,7 +19,7 @@ enum Type
   Fairy
   Unknown
 
-  def effectiveness_against(*types)
+  def effectiveness_against(types)
     TypeChart.effectiveness of: self,
                             against: types
   end
