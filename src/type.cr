@@ -1,3 +1,5 @@
+# The list of types in the game.
+# See `./type_chart.cr` for type effectiveness.
 enum Type
   Normal
   Fire

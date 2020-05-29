@@ -1,9 +1,14 @@
 module TypeChart
   module DefinitionMacros
+    private Strong  = 2_f32
+    private Regular = 1_f32
+    private Weak    = 0.5_f32
+    private None    = 0_f32
+
     private macro def_effectiveness_category(base_type, subject_types, effectiveness)
       {% if subject_types %}
         {% for subject_type in subject_types %}
-          @@chart[{Type::{{base_type}}, Type::{{subject_type}}}] = Effectiveness::{{effectiveness}}
+          @@chart[{Type::{{base_type}}, Type::{{subject_type}}}] = {{effectiveness}}
         {% end %}
       {% end %}
     end

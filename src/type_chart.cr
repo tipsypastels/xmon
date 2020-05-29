@@ -2,7 +2,7 @@ require "./type_chart/definition_macros"
 
 module TypeChart
   include DefinitionMacros
-  @@chart = {} of {Type, Type} => Effectiveness
+  @@chart = {} of {Type, Type} => Float32
 
   def_effectiveness Normal,
     weak_against: {Rock},
@@ -84,19 +84,19 @@ module TypeChart
     weak_against: {Fire, Poison, Steel}
 
   # Computes the effectiveness of an attacking type against a Pokemon species.
-  def self.effectiveness(*, of attacking_type, against mon : Species) : Effectiveness
+  def self.effectiveness(*, of attacking_type, against mon : Species)
     effectiveness(of: attacking_type, against: mon.types)
   end
 
   # Computes the effectiveness of an attacking type against a set of defending types.
-  def self.effectiveness(*, of attacking_type, against defending_types) : Effectiveness
+  def self.effectiveness(*, of attacking_type, against defending_types)
     effectivenesses = defending_types.map { |t| fetch(attacking_type, t) }
-    effectivenesses.reduce { |e1, e2| e1 & e2 }
+    effectivenesses.reduce { |e1, e2| e1 * e2 }
   end
 
   # Fetches the effectiveness for a one-on-one type interaction. Does not combine types.
   # There is no need to use this directly, just use `.effectiveness`.
   private def self.fetch(attacking_type, defending_type)
-    @@chart.fetch({attacking_type, defending_type}, Effectiveness::Regular)
+    @@chart.fetch({attacking_type, defending_type}, Regular)
   end
 end
